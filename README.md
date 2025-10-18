@@ -20,5 +20,5 @@ Excelerate is a learning management platform designed to help learners and admin
 - Low-fidelity wireframes designed and hosted on GitHub Pages.
 
 ### 🔗 Wireframe Link
-[View Wireframes Here]((https://excelerate-wireframe.netlify.app/))
+[View Wireframes Here](https://excelerate-wireframe.netlify.app/)
 
