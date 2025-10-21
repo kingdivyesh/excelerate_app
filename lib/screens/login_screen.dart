@@ -163,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           const SizedBox(height: 16),
 
-                          // Login button
+                          // ✅ Login button with navigation
                           SizedBox(
                             width: double.infinity,
                             height: 48,
@@ -171,7 +171,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               onPressed: () {
                                 if (_formKey.currentState?.validate() ??
                                     false) {
-                                  // navigate to home
+                                  Navigator.pushReplacementNamed(
+                                    context,
+                                    '/home',
+                                  );
                                 }
                               },
                               style: ElevatedButton.styleFrom(
