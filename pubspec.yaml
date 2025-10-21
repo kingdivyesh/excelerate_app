@@ -24,3 +24,5 @@ flutter:
   assets:
     - assets/logo.webp
     - assets/google_logo.png
+    - assets/images/screenshot.png
+

@@ -1,24 +1,77 @@
-# Excelerate App
+# 🚀 Excellerate App
 
-## 📘 Project Vision
-Excelerate is a learning management platform designed to help learners and administrators manage educational programs easily. The goal is to make accessing, tracking, and managing courses more organized and engaging.
+A cross-platform mobile application built using **Flutter** and **Dart**, developed as part of the *Excelerate Internship Program*.  
+The app focuses on creating a clean, branded, and interactive experience — following the provided wireframes and color theme.
 
-## 🎯 Objectives
-- Provide a smooth experience for learners to browse, enroll, and track programs.
-- Enable admins to create and manage courses efficiently.
-- Build a foundation for further UI and feature development using Flutter.
+---
+
+## 🧩 Features Implemented
+
+✅ **Login Screen** – Allows users to sign in with email and password.  
+✅ **Signup Screen** – Enables new users to register and agree to terms.  
+✅ **Home Screen** – Base navigation screen leading to the program listing.  
+✅ **Program Listing Screen** – Displays a list of available programs.  
+✅ **Program Details Screen** – Shows detailed information for a selected program.  
+
+---
 
 ## 🧭 Navigation Flow
-1. **Login Screen** – Secure login for learners and admins.
-2. **Home Screen** – Displays the list of available programs.
-3. **Program Details Screen** – Shows course description, modules, and progress.
-4. **Profile Screen** – Allows learners to view and edit their details.
-5. **Admin Dashboard** – For admins to manage programs and view learner stats.
 
-## 🧩 Current Progress
-- Initial Flutter project setup committed and pushed to GitHub (main branch).
-- Low-fidelity wireframes designed and hosted on GitHub Pages.
+1. **Launch Screen → Login Screen**  
+2. **Login → Home Screen**  
+3. **Home → Program Listing Screen**  
+4. **Program Listing → Program Details Screen**
 
-### 🔗 Wireframe Link
-[View Wireframes Here](https://excelerate-wireframe.netlify.app/)
+All screens are fully functional and connected using Flutter’s `Navigator`.
 
+---
+
+## 🎨 Design & Branding
+
+The app follows the **Excelerate theme**:
+- Background color: Light neutral tone  
+- Primary buttons: Deep blue with contrasting white text  
+- Font: Clean, readable sans-serif  
+- Consistent padding, rounded corners, and alignment throughout the UI  
+
+---
+
+## 📱 Screenshots
+
+Below are screenshots of the working UI prototype:
+
+### 🔐 Login Screen
+![Login Screen](assets/images/login_screen.png/)
+
+### 📝 Signup Screen
+![Signup Screen](assets/images/signup_screen.png)
+
+### 🏠 Home Screen
+![Home Screen](assets/images/home_screen.png)
+
+### 📋 Program Listing Screen
+![Program Listing Screen](assets/images/program_listing_screen.png)
+
+### 📄 Program Details Screen
+![Program Details Screen](assets/images/program_details_screen.png)
+
+
+
+---
+
+## 🧰 Tech Stack
+
+- **Framework:** Flutter  
+- **Language:** Dart  
+- **Platform:** Android & iOS  
+- **IDE:** Visual Studio Code  
+- **Version Control:** Git & GitHub
+
+---
+
+## 💻 How to Run the App
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/kingdivyesh/excelerate_app.git
+   cd excelerate_app
