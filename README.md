@@ -41,19 +41,19 @@ The app follows the **Excelerate theme**:
 Below are screenshots of the working UI prototype:
 
 ### 🔐 Login Screen
-![Login Screen](assets/images/login_screen.png/)
+<img src="assets/images/login_screen.png" alt="Login Screen" width="250"/>
 
 ### 📝 Signup Screen
-![Signup Screen](assets/images/signup_screen.png)
+<img src="assets/images/signup_screen.png" alt="Signup Screen" width="250"/>
 
 ### 🏠 Home Screen
-![Home Screen](assets/images/home_screen.png)
+<img src="assets/images/home_screen.png" alt="Home Screen" width="250"/>
 
 ### 📋 Program Listing Screen
-![Program Listing Screen](assets/images/program_listing_screen.png)
+<img src="assets/images/program_listing_screen.png" alt="Program Listing Screen" width="250"/>
 
 ### 📄 Program Details Screen
-![Program Details Screen](assets/images/program_details_screen.png)
+<img src="assets/images/program_details_screen.png" alt="Program Details Screen" width="250"/>
 
 
 
