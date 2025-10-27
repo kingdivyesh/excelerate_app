@@ -16,7 +16,6 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         backgroundColor: brandPrimaryColor,
-        // 🧭 White logo background for visibility
         title: Container(
           padding: const EdgeInsets.all(6),
           decoration: BoxDecoration(
@@ -31,7 +30,6 @@ class HomeScreen extends StatelessWidget {
                 const Icon(Icons.school, color: kCoral, size: 32),
           ),
         ),
-        // 🧹 Removed leading (no back button on home)
         leading: Container(),
         actions: [
           IconButton(
@@ -42,27 +40,19 @@ class HomeScreen extends StatelessWidget {
           ),
         ],
       ),
-
-      // ✨ Scrollable body for small devices
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 30),
-
-            // Progress/success icon
             Icon(Icons.trending_up, size: 80, color: brandAccentColor),
-
             const SizedBox(height: 20),
-
             const Text(
               'Your journey starts here!',
               style: TextStyle(fontSize: 18, color: Colors.grey),
             ),
-
             const SizedBox(height: 20),
-
             const Text(
               'Welcome to Excelerate!',
               style: TextStyle(
@@ -71,27 +61,20 @@ class HomeScreen extends StatelessWidget {
                 color: brandAccentColor,
               ),
             ),
-
             const SizedBox(height: 10),
-
             const Text(
               'Empowering learners through professional development programs.',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16, color: Colors.black87),
             ),
-
             const SizedBox(height: 40),
-
-            // ✨ Gradient Buttons
             GradientButton(
               text: 'View Programs',
               onPressed: () {
                 Navigator.pushNamed(context, '/programListing');
               },
             ),
-
             const SizedBox(height: 20),
-
             GradientButton(
               text: 'Edit Profile',
               onPressed: () {
@@ -100,7 +83,6 @@ class HomeScreen extends StatelessWidget {
                 );
               },
             ),
-
             const SizedBox(height: 40),
           ],
         ),

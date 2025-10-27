@@ -148,7 +148,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                 onPressed: isSubmitting
                     ? null
                     : () {
-                        _submitFeedback(); // ✅ wrapped async call in synchronous lambda
+                        _submitFeedback();
                       },
               ),
             ],

@@ -23,8 +23,6 @@ class ExcelerateApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Poppins',
-
-        // 👇 Excelerate brand integration
         colorScheme: ColorScheme.fromSeed(
           seedColor: kCoral,
           brightness: Brightness.light,
@@ -35,7 +33,7 @@ class ExcelerateApp extends StatelessWidget {
 
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: kCoral, // fallback color if gradient not used
+            backgroundColor: kCoral,
             foregroundColor: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),

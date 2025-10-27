@@ -25,7 +25,6 @@ class ApiService {
     // simulate network delay
     await Future.delayed(const Duration(seconds: 1));
 
-    // always return true for testing
     return true;
   }
 }

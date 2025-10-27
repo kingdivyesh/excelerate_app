@@ -17,7 +17,6 @@ class _LoginScreenState extends State<LoginScreen> {
   bool keepSignedIn = false;
   bool _obscurePassword = true; // for show/hide password
 
-  // Open the FAQ help page
   Future<void> _launchHelpURL() async {
     final Uri url = Uri.parse(
       'https://experience.4excelerate.org/supportcenter/faqsupport',

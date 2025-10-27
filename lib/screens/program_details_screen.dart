@@ -60,7 +60,6 @@ class ProgramDetailsScreen extends StatelessWidget {
               child: GradientButton(
                 text: 'Enroll Now',
                 onPressed: () async {
-                  // ✅ Enrollment success animation
                   showDialog(
                     context: context,
                     barrierDismissible: false,
@@ -87,7 +86,6 @@ class ProgramDetailsScreen extends StatelessWidget {
                     ),
                   );
 
-                  // ⏳ Wait 2 seconds, close dialog, then go to Feedback screen
                   await Future.delayed(const Duration(seconds: 2));
                   if (context.mounted) {
                     Navigator.pop(context); // close dialog
