@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 import '../theme/gradients.dart';
 import '../widgets/gradient_button.dart';
+import 'feedback_screen.dart';
 
 class ProgramDetailsScreen extends StatelessWidget {
   const ProgramDetailsScreen({super.key});
@@ -12,7 +13,6 @@ class ProgramDetailsScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
-
       appBar: AppBar(
         centerTitle: true,
         flexibleSpace: Container(
@@ -27,7 +27,6 @@ class ProgramDetailsScreen extends StatelessWidget {
         ),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
-
       body: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
@@ -60,12 +59,40 @@ class ProgramDetailsScreen extends StatelessWidget {
             Center(
               child: GradientButton(
                 text: 'Enroll Now',
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('You have enrolled successfully!'),
+                onPressed: () async {
+                  // ✅ Enrollment success animation
+                  showDialog(
+                    context: context,
+                    barrierDismissible: false,
+                    builder: (_) => const Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.check_circle,
+                            color: Colors.green,
+                            size: 80,
+                          ),
+                          SizedBox(height: 12),
+                          Text(
+                            'Enrolled Successfully!',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.green,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   );
+
+                  // ⏳ Wait 2 seconds, close dialog, then go to Feedback screen
+                  await Future.delayed(const Duration(seconds: 2));
+                  if (context.mounted) {
+                    Navigator.pop(context); // close dialog
+                    Navigator.pushNamed(context, '/feedback');
+                  }
                 },
               ),
             ),

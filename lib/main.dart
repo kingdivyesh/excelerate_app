@@ -5,6 +5,8 @@ import 'screens/home_screen.dart';
 import 'screens/program_listing_screen.dart';
 import 'screens/program_details_screen.dart';
 import 'screens/landing_page.dart';
+import 'screens/feedback_screen.dart';
+
 import 'theme/colors.dart';
 
 void main() {
@@ -59,6 +61,7 @@ class ExcelerateApp extends StatelessWidget {
         '/home': (context) => const HomeScreen(),
         '/programListing': (context) => const ProgramListingScreen(),
         '/programDetails': (context) => const ProgramDetailsScreen(),
+        '/feedback': (context) => const FeedbackScreen(),
       },
     );
   }
