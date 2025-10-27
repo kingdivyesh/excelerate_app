@@ -87,9 +87,11 @@ The app follows the **Excelerate theme**:
    cd excelerate_app
 
 2. Get dependencies :
+   ```bash
    flutter pub get
 
 3. Run the app :
+   ```bash
    flutter run
 
 ## 📝 Week 3 Updates
