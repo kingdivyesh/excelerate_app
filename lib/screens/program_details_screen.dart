@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../theme/colors.dart';
+import '../theme/gradients.dart';
+import '../widgets/gradient_button.dart';
 
 class ProgramDetailsScreen extends StatelessWidget {
   const ProgramDetailsScreen({super.key});
@@ -8,28 +11,55 @@ class ProgramDetailsScreen extends StatelessWidget {
     final program = ModalRoute.of(context)?.settings.arguments as Map?;
 
     return Scaffold(
+      backgroundColor: Colors.white,
+
       appBar: AppBar(
-        title: Text(program?['title'] ?? 'Program Details'),
-        backgroundColor: const Color(0xFF1565C0),
         centerTitle: true,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(gradient: kBrandGradient),
+        ),
+        title: Text(
+          program?['title'] ?? 'Program Details',
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
+
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Title
             Text(
               program?['title'] ?? '',
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontSize: 26,
+                fontWeight: FontWeight.bold,
+                color: kDeepPurple,
+              ),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 16),
+
+            // Description
             Text(
-              program?['description'] ?? '',
-              style: const TextStyle(fontSize: 16, color: Colors.black87),
+              program?['description'] ??
+                  'Learn more about this exciting program designed to enhance your professional skills and career opportunities.',
+              style: const TextStyle(
+                fontSize: 16,
+                color: Colors.black87,
+                height: 1.5,
+              ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 40),
+
+            // Gradient Enroll Button
             Center(
-              child: ElevatedButton(
+              child: GradientButton(
+                text: 'Enroll Now',
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
@@ -37,7 +67,22 @@ class ProgramDetailsScreen extends StatelessWidget {
                     ),
                   );
                 },
-                child: const Text('Enroll Now'),
+              ),
+            ),
+            const SizedBox(height: 20),
+
+            // Back button
+            Center(
+              child: TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text(
+                  'Back to Programs',
+                  style: TextStyle(
+                    color: kCoral,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 15,
+                  ),
+                ),
               ),
             ),
           ],

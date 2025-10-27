@@ -1,86 +1,107 @@
 import 'package:flutter/material.dart';
+import '../theme/colors.dart';
+import '../widgets/gradient_button.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    const Color brandPrimaryColor = kCoral;
+    const Color brandAccentColor = kDeepPurple;
+
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Excelerate Home'),
-        backgroundColor: const Color(0xFF1565C0),
+        elevation: 0,
         centerTitle: true,
+        backgroundColor: brandPrimaryColor,
+        // 🧭 White logo background for visibility
+        title: Container(
+          padding: const EdgeInsets.all(6),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Image.asset(
+            'assets/logo.webp',
+            height: 36,
+            fit: BoxFit.contain,
+            errorBuilder: (context, error, stackTrace) =>
+                const Icon(Icons.school, color: kCoral, size: 32),
+          ),
+        ),
+        // 🧹 Removed leading (no back button on home)
+        leading: Container(),
         actions: [
           IconButton(
-            icon: const Icon(Icons.logout),
+            icon: const Icon(Icons.logout, color: Colors.white),
             onPressed: () {
               Navigator.pushReplacementNamed(context, '/login');
             },
           ),
         ],
       ),
-      body: Padding(
+
+      // ✨ Scrollable body for small devices
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const SizedBox(height: 30),
+
+            // Progress/success icon
+            Icon(Icons.trending_up, size: 80, color: brandAccentColor),
+
             const SizedBox(height: 20),
-            Image.asset(
-              'assets/logo.png',
-              height: 100,
-              errorBuilder: (context, error, stackTrace) =>
-                  const Icon(Icons.school, size: 80, color: Color(0xFF1565C0)),
+
+            const Text(
+              'Your journey starts here!',
+              style: TextStyle(fontSize: 18, color: Colors.grey),
             ),
-            const SizedBox(height: 16),
+
+            const SizedBox(height: 20),
+
             const Text(
               'Welcome to Excelerate!',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 26,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF1565C0),
+                color: brandAccentColor,
               ),
             ),
+
             const SizedBox(height: 10),
+
             const Text(
               'Empowering learners through professional development programs.',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16, color: Colors.black87),
             ),
+
             const SizedBox(height: 40),
-            ElevatedButton.icon(
-              icon: const Icon(Icons.list_alt),
-              label: const Text('View Programs'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF1565C0),
-                foregroundColor: Colors.white,
-                minimumSize: const Size(double.infinity, 50),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
+
+            // ✨ Gradient Buttons
+            GradientButton(
+              text: 'View Programs',
               onPressed: () {
                 Navigator.pushNamed(context, '/programListing');
               },
             ),
+
             const SizedBox(height: 20),
-            ElevatedButton.icon(
-              icon: const Icon(Icons.person),
-              label: const Text('Edit Profile'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF42A5F5),
-                foregroundColor: Colors.white,
-                minimumSize: const Size(double.infinity, 50),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
+
+            GradientButton(
+              text: 'Edit Profile',
               onPressed: () {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Profile editing coming soon!')),
                 );
               },
             ),
+
+            const SizedBox(height: 40),
           ],
         ),
       ),

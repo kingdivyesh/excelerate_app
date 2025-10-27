@@ -24,5 +24,13 @@ flutter:
   assets:
     - assets/logo.webp
     - assets/google_logo.png
-    - assets/images/screenshot.png
+    - assets/images/
 
+fonts:
+  - family: Poppins
+    fonts:
+      - asset: assets/fonts/Poppins-Regular.ttf
+      - asset: assets/fonts/Poppins-Bold.ttf
+        weight: 700
+      - asset: assets/fonts/Poppins-ExtraBold.ttf
+        weight: 800

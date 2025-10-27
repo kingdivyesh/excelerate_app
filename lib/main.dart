@@ -4,6 +4,8 @@ import 'screens/signup_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/program_listing_screen.dart';
 import 'screens/program_details_screen.dart';
+import 'screens/landing_page.dart';
+import 'theme/colors.dart';
 
 void main() {
   runApp(const ExcelerateApp());
@@ -18,12 +20,20 @@ class ExcelerateApp extends StatelessWidget {
       title: 'Excelerate',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF1565C0)),
-        primaryColor: const Color(0xFF1565C0),
-        scaffoldBackgroundColor: const Color(0xFFF5F5F5),
+        fontFamily: 'Poppins',
+
+        // 👇 Excelerate brand integration
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: kCoral,
+          brightness: Brightness.light,
+        ),
+
+        primaryColor: kCoral,
+        scaffoldBackgroundColor: const Color(0xFFF9F9F9),
+
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFF1565C0),
+            backgroundColor: kCoral, // fallback color if gradient not used
             foregroundColor: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
@@ -31,6 +41,7 @@ class ExcelerateApp extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 28),
           ),
         ),
+
         textTheme: const TextTheme(
           bodyMedium: TextStyle(fontSize: 16, color: Colors.black87),
           titleLarge: TextStyle(
@@ -39,8 +50,10 @@ class ExcelerateApp extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: '/login',
+
+      initialRoute: '/landing',
       routes: {
+        '/landing': (context) => const AppLandingPage(),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignUpScreen(),
         '/home': (context) => const HomeScreen(),
