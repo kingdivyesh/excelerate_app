@@ -7,9 +7,10 @@ The app delivers a clean, branded, and interactive experience — designed follo
 
 You can download the latest stable build here:
 
-👉 [**Download Excelerate v1.0.0 APK**]((https://github.com/kingdivyesh/excelerate_app/releases/download/v1.0.0/excelerate_apk_v1.0.0.apk))
+👉 [**Download Excelerate v1.0.0 APK**](https://github.com/kingdivyesh/excelerate_app/releases/download/v1.0.0/excelerate_apk_v1.0.0.apk)
 
 (Click to download directly and install on your Android device.)
+
 
 ⚠️ **Note:** iOS version (IPA) is under development and not available yet.
 
