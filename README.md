@@ -83,14 +83,17 @@ The app follows the **Excelerate Design System**:
 
 ## 💻 How to Run the App
 
-1. Clone this repository:
+1. **Clone this repository:**
+   ```bash
    git clone https://github.com/kingdivyesh/excelerate_app.git
    cd excelerate_app
 
-2. Get dependencies:
+3. **Get dependencies:**
+   ```bash
    flutter pub get
 
-3. Run the app:
+5. **Run the app:**
+   ```bash
    flutter run
 
 
