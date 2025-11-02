@@ -44,34 +44,50 @@ class _SignUpScreenState extends State<SignUpScreen> {
     bool obscure = false,
     TextEditingController? controller,
     String? Function(String?)? validator,
+    Widget? helper,
   }) {
-    bool isPassword = obscure;
-    return TextFormField(
-      controller: controller,
-      obscureText: obscure,
-      decoration: InputDecoration(
-        labelText: label,
-        labelStyle: const TextStyle(fontFamily: 'Poppins'),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-        focusedBorder: const OutlineInputBorder(
-          borderSide: BorderSide(color: _coral, width: 2),
+    final bool isPassword = label.toLowerCase().contains('password');
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        TextFormField(
+          controller: controller,
+          obscureText: obscure,
+          decoration: InputDecoration(
+            labelText: label,
+            labelStyle: const TextStyle(fontFamily: 'Poppins'),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+            focusedBorder: const OutlineInputBorder(
+              borderSide: BorderSide(color: _coral, width: 2),
+            ),
+            suffixIcon: isPassword
+                ? IconButton(
+                    icon: Icon(
+                      label.contains('Confirm')
+                          ? (_obscureConfirmPassword
+                                ? Icons.visibility_off
+                                : Icons.visibility)
+                          : (_obscurePassword
+                                ? Icons.visibility_off
+                                : Icons.visibility),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        if (label.contains('Confirm')) {
+                          _obscureConfirmPassword = !_obscureConfirmPassword;
+                        } else {
+                          _obscurePassword = !_obscurePassword;
+                        }
+                      });
+                    },
+                  )
+                : null,
+          ),
+          validator: validator,
         ),
-        suffixIcon: isPassword
-            ? IconButton(
-                icon: Icon(obscure ? Icons.visibility_off : Icons.visibility),
-                onPressed: () {
-                  setState(() {
-                    if (label.contains('Confirm')) {
-                      _obscureConfirmPassword = !_obscureConfirmPassword;
-                    } else {
-                      _obscurePassword = !_obscurePassword;
-                    }
-                  });
-                },
-              )
-            : null,
-      ),
-      validator: validator,
+        if (helper != null) ...[const SizedBox(height: 6), helper],
+      ],
     );
   }
 
@@ -135,22 +151,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         // --- Form Fields ---
                         _buildTextFormField(
                           label: 'First Name *',
-                          validator: (val) {
-                            if (val == null || val.isEmpty) {
-                              return 'Enter first name';
-                            }
-                            return null;
-                          },
+                          validator: (val) => val == null || val.isEmpty
+                              ? 'Enter first name'
+                              : null,
                         ),
                         const SizedBox(height: 12),
                         _buildTextFormField(
                           label: 'Last Name *',
-                          validator: (val) {
-                            if (val == null || val.isEmpty) {
-                              return 'Enter last name';
-                            }
-                            return null;
-                          },
+                          validator: (val) => val == null || val.isEmpty
+                              ? 'Enter last name'
+                              : null,
                         ),
                         const SizedBox(height: 12),
                         _buildTextFormField(
@@ -159,13 +169,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             if (val == null || val.isEmpty) {
                               return 'Enter your email';
                             }
-                            if (!val.contains('@')) return 'Invalid email';
+                            if (!RegExp(
+                              r'^[\w\.-]+@[\w\.-]+\.\w+$',
+                            ).hasMatch(val)) {
+                              return 'Invalid email address';
+                            }
                             return null;
                           },
                         ),
                         const SizedBox(height: 12),
                         _buildTextFormField(label: 'Country of Nationality'),
                         const SizedBox(height: 12),
+
+                        // --- Password Validation with Helper Text ---
                         _buildTextFormField(
                           label: 'Password *',
                           obscure: _obscurePassword,
@@ -173,6 +189,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           validator: (val) {
                             if (val == null || val.isEmpty) {
                               return 'Enter password';
+                            }
+                            if (val.length < 8) {
+                              return 'Password must be at least 8 characters long';
                             }
                             if (!RegExp(r'[A-Za-z]').hasMatch(val)) {
                               return 'Password must contain at least one letter';
@@ -182,6 +201,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             }
                             return null;
                           },
+                          helper: const Text(
+                            'Must include at least 8 characters, 1 letter, and 1 number.',
+                            style: TextStyle(
+                              color: Colors.black54,
+                              fontSize: 12,
+                              fontFamily: 'Poppins',
+                            ),
+                          ),
                         ),
                         const SizedBox(height: 12),
                         _buildTextFormField(
@@ -206,9 +233,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           children: [
                             Checkbox(
                               value: agreeToTerms,
-                              onChanged: (val) {
-                                setState(() => agreeToTerms = val ?? false);
-                              },
+                              onChanged: (val) =>
+                                  setState(() => agreeToTerms = val ?? false),
                               activeColor: _coral,
                             ),
                             Expanded(
@@ -374,6 +400,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
         ),
       ),
+
+      // --- Footer Help Section ---
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(bottom: 20),
         child: Column(

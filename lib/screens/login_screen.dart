@@ -185,48 +185,53 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                             const SizedBox(height: 16),
+
+                            // ✅ Fixed Login Button (no more half-clipped text)
                             SizedBox(
                               width: double.infinity,
-                              height: 48,
-                              child: DecoratedBox(
-                                decoration: const BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: kLogoGradientColors,
-                                    begin: Alignment.centerLeft,
-                                    end: Alignment.centerRight,
-                                  ),
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(8),
+                              height: 50,
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  if (_formKey.currentState?.validate() ??
+                                      false) {
+                                    Navigator.pushReplacementNamed(
+                                      context,
+                                      '/home',
+                                    );
+                                  }
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
                                 ),
-                                child: ElevatedButton(
-                                  onPressed: () {
-                                    if (_formKey.currentState?.validate() ??
-                                        false) {
-                                      Navigator.pushReplacementNamed(
-                                        context,
-                                        '/home',
-                                      );
-                                    }
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.transparent,
-                                    shadowColor: Colors.transparent,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8),
+                                child: Ink(
+                                  decoration: const BoxDecoration(
+                                    gradient: LinearGradient(
+                                      colors: kLogoGradientColors,
+                                      begin: Alignment.centerLeft,
+                                      end: Alignment.centerRight,
+                                    ),
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(8),
                                     ),
                                   ),
-                                  child: const Text(
-                                    'Login',
-                                    style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white,
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    child: const Text(
+                                      'Login',
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
                             ),
+
                             const SizedBox(height: 16),
                             Row(
                               children: [
