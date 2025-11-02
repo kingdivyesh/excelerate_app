@@ -3,6 +3,17 @@
 A cross-platform mobile application built using **Flutter** and **Dart**, developed as part of the *Excelerate Internship Program*.  
 The app delivers a clean, branded, and interactive experience — designed following the official wireframes and color scheme.
 
+## 📦 Download APK (Android)
+
+You can download the latest stable build here:
+
+👉 [**Download Excelerate v1.0.0 APK**]((https://github.com/kingdivyesh/excelerate_app/releases/download/v1.0.0/excelerate_apk_v1.0.0.apk))
+
+(Click to download directly and install on your Android device.)
+
+⚠️ **Note:** iOS version (IPA) is under development and not available yet.
+
+
 ---
 
 ## 🧩 Features Implemented
