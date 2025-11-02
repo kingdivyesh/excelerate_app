@@ -193,7 +193,7 @@ class HomeScreen extends StatelessWidget {
                     child: const Text(
                       'Get Support',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Color.fromARGB(255, 30, 46, 217),
                         fontSize: 15,
                         decoration: TextDecoration.underline,
                         fontFamily: 'Poppins',
