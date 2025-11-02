@@ -1,20 +1,25 @@
 # 🚀 Excelerate App
 
 A cross-platform mobile application built using **Flutter** and **Dart**, developed as part of the *Excelerate Internship Program*.  
-The app focuses on creating a clean, branded, and interactive experience — following the provided wireframes and color theme.
+The app delivers a clean, branded, and interactive experience — designed following the official wireframes and color scheme.
 
 ---
 
 ## 🧩 Features Implemented
 
-✅ **Landing Page / Launch Screen** – Initial welcome screen shown when the app starts.  
-✅ **Login Screen** – Allows users to sign in with email and password.  
-✅ **Signup Screen** – Enables new users to register and agree to terms.  
-✅ **Home Screen** – Base navigation screen leading to the program listing.  
-✅ **Program Listing Screen** – Now fetches data dynamically from a **mock API/JSON** instead of hardcoded text.  
-✅ **Program Details Screen** – Shows detailed information for a selected program with enrollment functionality.  
-✅ **Feedback Form** – Added a working feedback form with **validation** (name, email, message) and mock submission.  
-✅ **Registration Form** – Validated email and password fields added for registration.
+✅ **Custom App Icon** – Replaced default Flutter icon with our new **excelerate_icon** brand logo.  
+✅ **Landing / Launch Screen** – Clean introductory screen with app branding.  
+✅ **Login Screen** – Fully validated email-password login form.  
+✅ **Signup Screen** – User registration form with input validation and terms acceptance.  
+✅ **Home Screen** – Serves as the main hub for navigation across app features.  
+✅ **Program Listing Screen** – Dynamically loads data from a **mock API (JSON)** instead of static content.  
+✅ **Program Details Screen** – Displays complete program info with “Enroll Now” option and success dialog.  
+✅ **Feedback Form** – Includes full **form validation** (name, email, message) with mock API submission.  
+✅ **Registration Form** – Integrated email and password validation flow.  
+✅ **Loading & Error Handling** – Uses Flutter’s `FutureBuilder`, loading indicators, and friendly messages.  
+✅ **Consistent Gradient Buttons** – Custom reusable button widget with animated gradient background.  
+✅ **Clean Folder Structure** – Organized files under `/screens`, `/theme`, `/widgets`, `/assets/images`.  
+✅ **All Comments Removed & Code Polished** – Production-ready version.
 
 ---
 
@@ -22,21 +27,22 @@ The app focuses on creating a clean, branded, and interactive experience — fol
 
 1. **Launch Screen → Login Screen**  
 2. **Login → Home Screen**  
-3. **Home → Program Listing Screen** (API connected)  
+3. **Home → Program Listing Screen (API connected)**  
 4. **Program Listing → Program Details Screen**  
-5. **Program Details → Feedback Form** (validated form submission)
+5. **Program Details → Feedback Form (validated submission)**
 
-All screens are fully functional, connected using Flutter’s `Navigator`, and fetch real/mock data where required.
+All screens are interconnected using `Navigator.push` and maintain smooth, logical transitions throughout the app.
 
 ---
 
 ## 🎨 Design & Branding
 
-The app follows the **Excelerate theme**:
-- Background color: Light neutral tone  
-- Primary buttons: Gradient buttons consistent across the app  
-- Font: Clean, readable sans-serif  
-- Consistent padding, rounded corners, and alignment throughout the UI  
+The app follows the **Excelerate Design System**:
+- **Primary Colors:** Coral & Deep Purple (as defined in `colors.dart`)  
+- **Buttons:** Branded gradient buttons (from `gradients.dart`)  
+- **Typography:** Simple, modern, and legible sans-serif fonts  
+- **Layout:** Consistent spacing, rounded corners, and responsive scaling  
+- **Theme:** Light background for clarity and professional appeal  
 
 ---
 
@@ -44,28 +50,24 @@ The app follows the **Excelerate theme**:
 
 ### 🏁 Landing Page
 <img src="assets/images/landing_page.png" alt="Landing Page" width="250"/>  
-*Welcome screen displayed when the app starts.*
 
 ### 🔐 Login Screen
-<img src="assets/images/login_screen.png" alt="Login Screen" width="250"/>
+<img src="assets/images/login_screen.png" alt="Login Screen" width="250"/>  
 
 ### 📝 Signup Screen
-<img src="assets/images/signup_screen.png" alt="Signup Screen" width="250"/>
+<img src="assets/images/signup_screen.png" alt="Signup Screen" width="250"/>  
 
 ### 🏠 Home Screen
-<img src="assets/images/home_screen.png" alt="Home Screen" width="250"/>
+<img src="assets/images/home_screen.png" alt="Home Screen" width="250"/>  
 
 ### 📋 Program Listing Screen (API Connected)
 <img src="assets/images/program_listing.png" alt="Program Listing Screen" width="250"/>  
-*Displays live data fetched from a mock API.*
 
 ### 📄 Program Details Screen
 <img src="assets/images/program_details.png" alt="Program Details Screen" width="250"/>  
-*Shows dynamic program details and enrollment confirmation.*
 
 ### 📝 Feedback Form
 <img src="assets/images/feedback_form.png" alt="Feedback Form" width="250"/>  
-*Validated form with mock submission and success feedback.*
 
 ---
 
@@ -75,33 +77,50 @@ The app follows the **Excelerate theme**:
 - **Language:** Dart  
 - **Platform:** Android & iOS  
 - **IDE:** Visual Studio Code  
-- **Version Control:** Git & GitHub
+- **Version Control:** Git & GitHub  
 
 ---
 
 ## 💻 How to Run the App
 
 1. Clone this repository:
-   ```bash
    git clone https://github.com/kingdivyesh/excelerate_app.git
    cd excelerate_app
 
-2. Get dependencies :
-   ```bash
+2. Get dependencies:
    flutter pub get
 
-3. Run the app :
-   ```bash
+3. Run the app:
    flutter run
 
-## 📝 Week 3 Updates
 
-- **Program Listing & Details screens** now fetch data dynamically from a mock API/JSON.  
-- **Feedback Form** added with validation (name, email, message) and mock submission.  
-- **Registration Form** added with email and password validation.  
-- **Loading & Error Handling**:  
-  - CircularProgressIndicator shown while fetching API data.  
-  - Friendly error messages displayed if API fails.  
-  - Feedback form disables submit button while submitting and shows success/failure messages.  
-- **Enrollment Flow**: “Enroll Now” button shows success dialog and navigates to feedback form.
+Latest Updates (v1.0.0)
 
+- Added custom app icon: excelerate_icon
+- Removed all commented code across all Dart files
+- Finalized color palette & gradient consistency
+- Improved Program Listing API response handling
+- Added loading & error states for API screens
+- Refined Feedback Form validation and UX flow
+- Fixed button paddings, alignment, and text scaling
+- Optimized image assets and project folder structure
+- Updated README and repository metadata for GitHub
+
+
+Version
+
+Current Version: v1.0.0
+Status: Stable Release (Production Ready)
+Next Goal: Add backend connectivity for real-time data & authentication
+
+
+Developer
+
+Developed by: Divyesh Haldankar
+Role: Flutter Developer | UI/UX Integrator | API Implementation
+
+
+Summary
+
+This marks the first stable release (v1.0.0) of the Excelerate App —
+a fully functional Flutter-based cross-platform app built with clean design, validated forms, mock API integration, and a polished UI aligned with the brand identity.
